@@ -32,9 +32,14 @@ class LanguageToolTextField extends StatefulWidget {
   /// ```language``` = 'auto' by default.
   final String language;
 
+  final TextAlignVertical textAlignVertical;
+  final TextAlign textAlign;
+   
   /// Creates a widget that checks grammar errors.
   const LanguageToolTextField({
     required this.controller,
+    this.textAlign = TextAlign.start,
+    this.textAlignVertical = TextAlignVertical.top,
     this.style,
     this.decoration = const InputDecoration(),
     this.language = 'auto',
@@ -92,6 +97,8 @@ class _LanguageToolTextFieldState extends State<LanguageToolTextField> {
           padding: const EdgeInsets.all(_padding),
           child: Center(
             child: TextField(
+              textAlign: textAlign,
+              textAlignVertical: textAlignVertical,
               focusNode: _focusNode,
               controller: widget.controller,
               scrollController: _scrollController,
