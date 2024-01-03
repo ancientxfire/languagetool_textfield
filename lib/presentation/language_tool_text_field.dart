@@ -34,7 +34,7 @@ class LanguageToolTextField extends StatefulWidget {
 
   final TextAlignVertical textAlignVertical;
   final TextAlign textAlign;
-   
+
   /// Creates a widget that checks grammar errors.
   const LanguageToolTextField({
     required this.controller,
@@ -97,8 +97,8 @@ class _LanguageToolTextFieldState extends State<LanguageToolTextField> {
           padding: const EdgeInsets.all(_padding),
           child: Center(
             child: TextField(
-              textAlign: textAlign,
-              textAlignVertical: textAlignVertical,
+              textAlign: widget.textAlign,
+              textAlignVertical: widget.textAlignVertical,
               focusNode: _focusNode,
               controller: widget.controller,
               scrollController: _scrollController,
@@ -114,8 +114,7 @@ class _LanguageToolTextFieldState extends State<LanguageToolTextField> {
     );
   }
 
-  void _textControllerListener() =>
-      widget.controller.scrollOffset = _scrollController.offset;
+  void _textControllerListener() => widget.controller.scrollOffset = _scrollController.offset;
 
   @override
   void dispose() {
